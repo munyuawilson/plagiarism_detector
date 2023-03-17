@@ -21,13 +21,7 @@ text="Community & Support.Learn about our programs and get support.dsgsg sdfbjfj
 LINKS=[]
 
 #get first two sentences to know the topic
-def get_text(user_input):
-        pattern = r"(.*?\.){2}"
-        match = re.search(pattern, text)
-        if match:
-                # Get the matched text
-                sentences = match.group()
-                print(sentences)
+
 
 #get links from google about the topic
 def get_links(url,text):
@@ -71,9 +65,7 @@ def plag_detector():
                 f=F.read()
                 compare=SequenceMatcher(text,f)
                 print(compare.ratio()*100)
+                print("done")
 
 
-get_links(url,text)
-get_data()
-plag_detector()
 
