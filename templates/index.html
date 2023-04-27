@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plagiarism Detector</title>
+  <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/color/48/null/home--v1.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     body {
@@ -16,30 +17,51 @@
     h1 {
       text-align: center;
     }
+    
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Plagiarism Detector</h1>
+    
     <div class="row justify-content-center">
       <div class="col-md-6">
         <form method="POST">
+		{% if error %}
+		<div class="mt-3">
+          <div class="alert alert-danger" role="alert">
+		  
+  {{error}}
+</div>
+</div>
+
+        {% endif %}
+		<label><h1>Plagiarism Detector</h1></label>
           <div class="form-group">
             <label for="inputText">Enter your text:</label>
-            <textarea class="form-control" id="input_text" name="input_text" rows="5" placeholder="Type here..."></textarea>
+            <textarea class="form-control" id="input_text" name="input_text" rows="5" placeholder="Type here..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" data-spinner>Submit</button>
         </form>
+      </div>
+      <div class="col-md-6">
         {% if similarity_score %}
-        <div class="mt-3">
-          <h4>Similarity score:</h4>
-          <p>{{ similarity_score  }} %</p>
-        </div>
+          <div class="mt-3">
+            <h4>Similarity score:</h4> <p>{{ similarity_score  }} %</p>
+          </div>
+        {% endif %}
+		
+
+        {% if links %}
+          <div>
+            {% for i in range(links|length) %}
+              <a href="{{ links[i] }}">{{ links[i] }}</a>  {{list_of_percentages[0][i]}}%  <br>
+            {% endfor %}
+          </div>
         {% endif %}
       </div>
     </div>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
