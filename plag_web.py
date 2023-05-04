@@ -32,7 +32,7 @@ def plagiarism_detect():
 
     return render_template('index.html',similarity_score=similarity_score,list_of_percentages=list_of_percentages,links=links,error=error)
 
-
+app.run()
 
 
 
