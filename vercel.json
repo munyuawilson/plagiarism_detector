@@ -1,15 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-      {
-          "src": "*.py",
-          "use": "@liudonghua123/now-flask"
-      }
-  ],
-  "routes": [
-      {
-          "src": "(.*)",
-          "dest": "plag_web.py"
-      }
-  ]
+    "version": 2,
+    "builds": [
+        {
+            "src": "./plag_web.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
 }
