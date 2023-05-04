@@ -36,7 +36,3 @@ def plagiarism_detect():
 
 
 
-
-
-if __name__=="__main__":
-    app.run()
