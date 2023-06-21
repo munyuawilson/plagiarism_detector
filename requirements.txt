@@ -1,0 +1,9 @@
+Flask
+Gunicorn
+selenium
+bs4
+requests
+nltk
+numpy
+scikit-learn
+
